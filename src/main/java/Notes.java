@@ -3,38 +3,38 @@ import java.util.Scanner;
 
 class Notes {
 	public static void main(String[] args) {
-		//create a fileReader
+		
+		//FileReader
 
 		// FileReader inputStream = null;
 
 		// try {
-		// 	inputStream = new FileReader("testfile.txt"); //FileReader(filename)
+		// 	inputStream = new FileReader("file.txt");
 
-		// 	int c; //character by character
+		// 	int c;
 
-		// 	while ((c = inputStream.read()) != -1) { //reading from the file
-		// 		//-1 means that the read() found no character
+		// 	while ((c = inputStream.read()) != -1) {
 		// 		System.out.print((char)c);
 		// 	}
 		// }
 		// catch (IOException e) {
 		// 	System.out.println(e);
 		// }
-		// finally { //runs regardless of whether the catch happens or not
-		// 	//finally even runs if the the function returned during the try or catch
+		// finally { //close your FileReader
+		// 	//finally runs even if the your code stopped during the try
+		// 	//function -> returns during the try, finally still runs
 		// 	try {
 		// 		if (inputStream != null) {
 		// 			inputStream.close();
 		// 		}
 		// 	}
-		// 	catch (IOException e) {
+		// 	catch(IOException e) {
 		// 		System.out.println(e);
 		// 	}
-		// }
+		// }	
 
-	
+		//BufferedReader
 
-		
 		// BufferedReader inputStream = null;
 
 		// try {
@@ -59,12 +59,12 @@ class Notes {
 		// 		System.out.println(e);
 		// 	}
 		// }
-		
 
 		Scanner s = null;
 
 		try {
-			s = new Scanner(new BufferedReader(new FileReader("testfile.txt")));
+			// s = new Scanner(new BufferedReader(new FileReader("testfile.txt")));
+			s = new Scanner(new File("file.txt"));
 
 			while (s.hasNext()) { 
 				System.out.print(s.next() + " "); //.next stops at punctuation, spaces, and newlines
@@ -73,6 +73,9 @@ class Notes {
 		catch (IOException e) {
 			System.out.println(e);
 		}
+		// catch (FileNotFoundException e) {
+		// 	System.out.println(e);
+		// }
 		finally {
 			if (s != null) {
 				s.close();
